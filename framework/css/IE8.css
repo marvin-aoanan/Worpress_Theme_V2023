@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* CSS Document */
+.wrap { width:990px; margin:0 auto; padding:0;}
+.wrap-shadow { background:#FFF url(../../images/wrap_shadow.png) 0 0 repeat-y; margin:0px 0 0 -15px; padding:0px; width:990px;}
+#hero { margin-top:0px !important; margin-left:15px!important; height:300px!important;}
+.formatted { padding-left:30px!important;}
+.hero_slides { margin-top:0px!important;}
+.hero_QQ { margin-top:0px!important;}
+
+#sidebar .ft_agents_pic { background:#FFF; border:#CCC solid 1px; padding:3px;}
+
+.agents_profile img {background:#FFF; border:#CCC solid 1px; padding:3px;}
+
+.qq_form p { margin:0; padding:0 0 0px 12px; line-height:22px; font-size:12px !important;}
+.qq_form .checkbox_insurance { margin-left:5px; white-space:nowrap; font-size:11px!important;}

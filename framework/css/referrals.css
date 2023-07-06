@@ -1,0 +1,13 @@
+/*****REFERRALS STYLE*******/
+#envato_refs { margin:0 auto; padding:0; text-align:center;}
+#envato_refs ul { margin:10px auto; padding:0;}
+#envato_refs li { margin:0 0 0 10px; padding:0; list-style:none; display:inline-block; border:#0F0 solid 0px;}
+#envato_refs li a { background:url(../../images/envato_referrals.png) no-repeat; text-indent:-99999px !important; display:block;}
+#envato_refs li a#themeforest { background-position:-8px -82px; width:106px; height:21px;}
+#envato_refs li a#codecanyon { background-position:-7px -280px; width:107px; height:20px;}
+#envato_refs li a#videohive { background-position:-4px -41px; width:91px; height:23px;}
+#envato_refs li a#audiojungle { background-position:-8px -198px; width:101px; height:23px;}
+#envato_refs li a#graphicriver { background-position:-0px -0px; width:111px; height:28px;}
+#envato_refs li a#photodune { background-position:-5px -121px; width:100px; height:23px;}
+#envato_refs li a#_3docean { background-position:-8px -242px; width:82px; height:18px;}
+#envato_refs li a#activeden { background-position:-8px -160px; width:89px; height:21px;}

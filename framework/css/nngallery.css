@@ -1,0 +1,471 @@
+/*
+CSS Name: Default Styles
+Description: NextGEN Default Gallery Stylesheet
+Author: Alex Rabe
+Version: 2.11
+
+This is a template stylesheet that can be used with NextGEN Gallery. I tested the
+styles with a default theme Kubrick. Modify it when your theme struggle with it,
+it's only a template design
+
+*/
+
+/* ----------- Album Styles Extend -------------*/
+#gallery_content { clear:both !important; display:block !important; text-align:left;}
+#gallery_content h3 { color:#666 !important; margin:0 !important; padding:0 !important; margin:0 !important; padding:0 !important;}
+.btn_view_all { width:200px; margin:0; padding:0;}
+
+.ngg-albumoverview {
+	margin:0px;
+	display:block !important;
+	padding:0;
+	height:220px !important;
+	overflow:hidden !important;
+}
+
+.ngg-album {
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #000;
+}
+
+/* IE6 will ignore this , again I hate IE6 */
+/* See also http://www.sitepoint.com/article/browser-specific-css-hacks */
+html>body .ngg-album {
+    overflow:hidden;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #cccccc;
+}
+
+.ngg-album {
+	overflow: hidden;
+	padding: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #cccccc;
+}
+
+.ngg-albumtitle {
+ 	font-weight: bold;
+	margin:0px;
+	padding:0px;
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+
+.ngg-thumbnail {
+	float: left;
+	margin-right: 12px;
+}
+
+.ngg-thumbnail img {
+	background-color:#FFFFFF;
+	border:1px solid #A9A9A9;
+	margin:4px 0px 4px 5px;
+	padding:4px;
+	position:relative;
+}
+
+.ngg-thumbnail img:hover {
+	background-color: #A9A9A9;
+}
+
+.ngg-description {
+	text-align: left;
+}
+
+/* ----------- Album Styles Compact -------------*/
+
+.ngg-album-compact {
+	margin:0px 20px 0 0 !important;
+	text-align:center !important;
+	width:190px;
+}
+
+.ngg-album-compactbox {
+	/*background:transparent url(albumset.gif) no-repeat scroll 0%;*/
+	background:url(../../images/shadow_gallery_thumb.png) center bottom no-repeat;
+	vertical-align:top;
+	padding:5px;
+	margin:0 0px 0px 0;
+	width:190px;
+	height:157px;
+	text-align:center;
+}
+
+
+.ngg-album-compactbox .Thumb {
+	margin:-20px 0 0 0;
+	padding:0;
+	vertical-align:bottom;
+	width:180px;
+	height:140px !important;
+	text-align:center;
+	border:#FFF solid 3px;
+}
+.ngg-album-compactbox .Thumb img {
+	background:#FFF;
+	border:3px solid #A9A9A9 !important;
+	display:block;
+	margin:0;
+	width:180px;
+	height:140px !important;
+	vertical-align:bottom;
+	}
+.ngg-album-compactbox img:hover {
+	border: solid 3px #A9A9A9 !important;
+	opacity:0.6; -moz-opacity:0.6; -webkit-opacity:0.6;
+}	
+
+.ngg-album-compact h4 {
+	font-size:15px !important;
+	font-weight:bold !important;
+	text-align:center !important;
+	margin:0 !important; padding:0 !important;
+}
+
+.ngg-album-compact p {
+	font-size:11px !important;
+	text-align:center !important;
+	padding:0 !important;
+	margin:0 !important;
+}
+
+/* ----------- Gallery style -------------*/
+
+.ngg-galleryoverview {
+	overflow: hidden;
+	margin:-20px 0 0px 0;
+	padding:0;
+	width:100%;
+	clear:both;
+	display:block !important;
+	border:#F00 solid 0px;
+	position:relative;
+}
+
+.ngg-galleryoverview .desc {
+/* required for description */
+   margin:0px;
+   padding:0px;
+}
+
+.ngg-gallery-thumbnail-box {
+	float: left;
+	vertical-align:top;
+	padding:5px;
+	margin:0 10px 0px 0;
+	width:190px;
+	height:157px;
+	background:url(../../images/shadow_gallery_thumb.png) center bottom no-repeat;
+}
+
+.ngg-gallery-thumbnail {
+	float:none;
+	margin:-20px 0 0 0;
+	padding:0;
+	vertical-align:top;
+}
+
+.ngg-gallery-thumbnail img {
+	background:#FFF;
+	border:0px solid #A9A9A9;
+	display:block;
+	margin:0;
+	padding:3px;
+	width:180px;
+	height:140px;
+	vertical-align:bottom;
+}
+
+.ngg-gallery-thumbnail img:hover {
+	background-color: #A9A9A9;
+}
+
+.ngg-gallery-thumbnail span {
+	/* Images description */
+	padding-left:0px;
+	display:block;
+}
+
+.ngg-clear {
+	clear: both;
+	float: none;
+}
+
+/* ----------- Gallery navigation -------------*/
+
+.ngg-navigation {
+	font-size:15px !important;
+	clear:both !important;
+	display:block !important;
+	padding-top: 15px;
+    padding-bottom:20px;
+	text-align:center;
+	float:right;
+	margin-right:20px;
+	font-family: 'Open Sans', sans-serif;
+	text-shadow:none;
+	font-weight:normal;
+}
+
+.ngg-navigation span {
+	margin-right:3px;
+	background: #1d70a0;
+	padding:5px 10px;
+	color:#FFF!important;
+}
+
+.ngg-navigation a.page-numbers,
+.ngg-navigation span.page-numbers,
+.ngg-navigation span.next,
+.ngg-navigation span.prev {
+	border:1px solid #DDDDDD;
+	margin-right:3px;
+	padding:5px 10px;
+    text-decoration: none;
+	background:#d3d3d3;
+	color:#1d70a0;
+}
+
+.ngg-navigation a.next,
+.ngg-navigation a.prev {
+	background: #1d70a0;
+	border:1px solid #DDDDDD;
+	margin-right:3px;
+	padding:5px 10px;
+    text-decoration: none;
+	color:#FFF;
+}
+.ngg-navigation a.next:hover,
+.ngg-navigation a.prev:hover,
+.ngg-navigation span.next:hover,
+.ngg-navigation span.prev:hover {
+	color:#CCC!important;
+}
+
+.ngg-navigation a.page-numbers:hover,
+.ngg-navigation span.page-numbers:hover
+ {
+	background: #1d70a0;
+	color: #FFFFFF !important;
+	text-decoration: none !important;
+}
+
+/* ----------- Image browser style -------------*/
+
+.ngg-imagebrowser {
+
+}
+
+.ngg-imagebrowser h3 {
+	text-align:center;
+}
+
+.ngg-imagebrowser img {
+	border:1px solid #A9A9A9;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	display:block !important;
+	padding:5px;
+}
+
+.ngg-imagebrowser-nav {
+	padding:5px;
+	margin-left:10px;
+}
+
+.ngg-imagebrowser-nav .back {
+	float:left;
+	border:1px solid #DDDDDD;
+	margin-right:3px;
+	padding:3px 7px;
+}
+
+.ngg-imagebrowser-nav .next {
+	float:right;
+	border:1px solid #DDDDDD;
+	margin-right:3px;
+	padding:3px 7px;
+}
+
+.ngg-imagebrowser-nav .counter {
+	text-align:center;
+	font-size:0.9em !important;
+}
+
+.exif-data {
+  	margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ----------- Slideshow -------------*/
+.slideshow {
+	margin:25px auto 0 auto;
+	text-align:center;
+	outline: none;
+
+}
+.slideshowlink { text-align:right !important; display:block; position:absolute; top:0px; right:20px; width:inherit;}
+
+#home_gallery .slideshowlink { display:none!important;}
+
+/* ----------- JS Slideshow -------------*/
+.ngg-slideshow {
+    overflow:hidden;
+    position: relative;
+}
+
+.ngg-slideshow * {
+    vertical-align:middle;
+}
+
+/* See also : http://www.brunildo.org/test/img_center.html */
+.ngg-slideshow-loader{
+    display: table-cell;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.ngg-slideshow-loader img{
+    background: none !important;
+    border: 0 none !important;
+    margin:auto !important;
+}
+
+/* ----------- Single picture -------------*/
+.ngg-singlepic {
+	background-color:#FFFFFF;
+	display:block;
+	padding:4px;
+}
+
+.ngg-left {
+	float: left;
+	margin-right:10px;
+}
+
+.ngg-right {
+	float: right;
+	margin-left:10px;
+}
+
+.ngg-center {
+  	margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ----------- Sidebar widget -------------*/
+.ngg-widget,
+.ngg-widget-slideshow {
+	overflow: hidden;
+	margin:0;
+	padding:0;
+	text-align:left;
+}
+
+.ngg-widget img {
+	border:2px solid #FFF;
+	margin:0pt 5px 10px 0px;
+	padding:0px;
+	width:60px;
+	height:45px;
+	 -moz-border-radius:5px!important;
+    -webkit-border-radius:5px!important;
+    -khtml-border-radius:5px!important;
+           border-radius:5px!important;
+}
+
+.ngg-widget img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+}
+
+.ngg-widget img:hover {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(0%);
+}
+
+/* ----------- Related images -------------*/
+.ngg-related-gallery {
+	background:#F9F9F9;
+	border:1px solid #E0E0E0;
+	overflow:hidden;
+	margin-bottom:1em;
+	margin-top:1em;
+	padding:5px;
+}
+.ngg-related-gallery img {
+	border: 1px solid #DDDDDD;
+	float: left;
+	margin: 0pt 3px;
+	padding: 2px;
+	height: 50px;
+	width:  50px;
+}
+
+.ngg-related-gallery img:hover {
+	border: 1px solid #000000;
+}
+
+/* ----------- Gallery list -------------*/
+
+.ngg-galleryoverview ul li:before {
+	content: '' !important;
+}
+
+.ngg-gallery-list {
+	list-style-type:none;
+	padding: 0px !important;
+	text-indent:0px !important;
+}
+
+.ngg-galleryoverview div.pic img{
+	/*width: 100%;*/
+	width:180px!important;
+	height:140px!important;
+}
+
+.ngg-gallery-list li {
+	float:left;
+	margin:0 2px 0px 2px !important;
+	overflow:hidden;
+}
+
+.ngg-gallery-list li a {
+	border:1px solid #CCCCCC;
+	display:block;
+	padding:2px;
+}
+
+.ngg-gallery-list li.selected a{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:#000000 none repeat scroll 0 0;
+}
+
+.ngg-gallery-list li img {
+	height:140px;
+	width:180px;
+}
+
+li.ngg-next, li.ngg-prev {
+	height:140px;
+	width:180px;
+	font-size:3.5em;
+}
+
+li.ngg-next a, li.ngg-prev a  {
+	padding-top:0px;
+	border: none;
+	text-decoration: none;
+}
+
+#TB_window {
+	z-index: 9999 !important;
+}

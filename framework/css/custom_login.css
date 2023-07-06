@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/********************CUSTOM LOGIN*************************/
+body.login { background:#FFFFFF url('../../images/hero_bg.png') 0 -290px repeat-x!important;}
+
+/*body.login a:link, a:active, a:visited{ 
+	outline: none !important;
+	color:#79a007 !important;
+	text-decoration: none !important;
+	text-shadow:none !important; 
+	
+}*/
+/*body.login a:hover{
+	color:#3d6117!important;
+	-webkit-transition: opacity color 0.4s ease;
+	   -moz-transition: opacity color 0.4s ease;
+	    -ms-transition: opacity color 0.4s ease;
+	     -o-transition: opacity color 0.4s ease;
+	        transition: opacity color 0.4s ease;
+}
+
+body.login a img{ 
+	border: none !important; 
+}*/
+
+#login { margin:0px auto 20px auto !important; padding:10px 20px !important;}
+.login h1 { margin:0 !important; padding:0 !important;}
+.login h1 a { background-image: url('http://cybrosolutions.net/cybrosolutions/wp-content/uploads/2014/01/logo-cybrosolutions.png') !important; width:189px !important; height:76px !important; margin:0px 0 60px 0px!important; background-size:auto !important; }
+
+#login #loginform { margin-top:20px !important;}
+.login form { background:#79a007 !important; border-color:#79a007 !important; padding:20px 20px !important}
+.login label { color:#333 !important; text-transform:uppercase !important; margin-bottom:-10px !important;}
+.login input[type='text'], .login input[type='password'] { border-radius:3px; height:32px !important; font-size:14px !important;}
+#loginform label[for=user_pass] { margin-top:-20px !important;}
+
+.wp-core-ui .button.button-large, .wp-core-ui .button-group.button-large .button {background:#3d6117 !important; border:#CCC solid 0px !important; width:135px !important; height:32px !important;}
+
+#loginform .captchaSizeDivSmall { float:left; margin-top:10px !important; margin-bottom:15px !important;}
+#loginform #captcha_code { float: right !important; width:135px !important; height:32px !important; margin:0px 0 15px 0 !important;}
+#loginform label#captcha_code_label { margin-top:-40px !important; float:left !important;}
+#loginform .si-captcha { width:115px !important; float:left;}
+/*#loginform img#si_image_com, #si_image_reg, #si_image_log, #si_image_side_login { float:left !important; padding-right:5px !important;}*/
+#loginform #si_refresh_log { float:left !important; padding-right:3px !important;}
+#loginform .login_input_captcha { margin-top:0px !important; float:right !important; height:32px !important;}
+
+.login .forgetmenot { margin-top:3px; clear:left;}
+.login #nav a, #backtoblog a { color:#79a007 !important}
+.login #nav a:hover, #backtoblog a:hover { color:#3d6117 !important}
+
+/*REGISTER */
+.login #reg_passmail { clear:both !important; float:left !important;  margin-top:17px !important; width:120px !important; color:#FFF !important;}
+#registerform .submit { float:right !important; margin-top:-32px !important; margin-bottom:10px !important;}
+
+#registerform .captchaSizeDivSmall { margin-top:10px;}
+#registerform #captcha_code { float: right !important; width:135px !important; height:32px !important; margin:0px 0 15px 0 !important;}
+#registerform label#captcha_code_label { margin-top:-40px !important; float:left !important;}
+#registerform #si_image_reg { width:115px !important; float:left;}
+/*#registerform img#si_image_com, #si_image_reg, #si_image_log, #si_image_side_login { float:left !important; padding-right:5px !important;}*/
+#registerform #si_refresh_reg { float:left !important; padding-left:3px !important;}
+#registerform .login_input_captcha { margin-top:-10px !important; float:right !important; height:32px !important;}
+
+/*LOST PASSWORD*/
+#lostpasswordform .submit { margin:0 !important;}
