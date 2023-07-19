@@ -1,24 +1,40 @@
 <?php
-  $header_template = of_get_option('header');
+$template_path = "parts/header/header-";
+$option_enable = of_get_option("enable_custom_header");
+$option_type = of_get_option("header_type");
+//$option_custom = of_get_option("custom_header");
+$option_color = of_get_option("custom_header_color");
+$option_bg_color = of_get_option("custom_header_bg_color");
+$option_bg_gradient = of_get_option("custom_header_bg_gradient");
+$option_bg = empty($option_bg_gradient) ? $option_bg_color : $option_bg_gradient;
 ?>
-<header class="d-flex flex-wrap justify-content-center pt-3 px-3 border-bottom">
+<header id="header" class="header <?php if ($option_enable == 1) { echo "custom-header "; } ?>">
+  <div class="d-flex flex-wrap justify-content-center align-items-center py-3 px-3 border-bottom">
+    <?php if ($option_type == 0) {
+      get_template_part($template_path . "title-tagline");
+    } ?>
 
-<?php if ( $header_template == 0  ) { ?>
-  <?php get_template_part( 'parts/header/header-title-tagline' ); ?>
-<?php } ?>
+    <?php if ($option_type == 1) { ?>
+      <div class="col-md-6"><?php get_template_part($template_path . "title-tagline"); ?></div>
+      <div class="col-md-6 text-end"><?php get_template_part($template_path . "cta"); ?></div>
+    <?php } ?>
 
-<?php if ($header_template == 1) { ?>
-  <div class="col-md-6"><?php get_template_part( 'parts/header/header-title-tagline' ); ?></div>
-  <div class="col-md-6 pb-3 text-end"><?php get_template_part( 'parts/header/header-cta' ); ?></div>
-<?php } ?>
+    <?php if ($option_type == 2) {
+      get_template_part($template_path . "logo");
+    } ?>
 
-<?php if ($header_template == 2) { ?>
-  <?php get_template_part( 'parts/header/header-logo' ); ?>
-<?php } ?>
-
-<?php if ($header_template == 3) { ?>
-  <div class="col-md-6"><?php get_template_part( 'parts/header/header-logo' ); ?></div>
-  <div class="col-md-6 pb-3 text-end"><?php get_template_part( 'parts/header/header-cta' ); ?></div>
-<?php } ?>
-
+    <?php if ($option_type == 3) { ?>
+      <div class="col-md-6"><?php get_template_part($template_path . "logo"); ?></div>
+      <div class="col-md-6 text-end"><?php get_template_part($template_path . "cta"); ?></div>
+    <?php } ?>
+  </div>
 </header>
+
+<?php if ($option_enable == 1) { ?>
+  <style scoped>
+    .custom-header {
+      color: <?php echo $option_color; ?>;
+      background: <?php echo $option_bg; ?>;
+    }
+  </style>
+<?php } ?>

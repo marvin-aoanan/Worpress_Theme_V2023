@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -6,21 +7,19 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
-* @package WordPress
+ * @package WordPress
  * @subpackage Cybro_Solutions_Theme
  * @since Cybro Solutions 2.0.23
  */
-
 ?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
-	</div><!-- #content -->
+</main><!-- #main -->
 
-	<?php get_template_part( 'parts/footer/footer-simple' ); ?>
+<?php get_template_part('parts/footer/footer-options'); ?>
 
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

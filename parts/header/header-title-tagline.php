@@ -14,15 +14,7 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 
 ?>
 
-<!-- <?php if ( has_custom_logo() && $show_title ) : ?>
-	<div class="site-logo"><?php the_custom_logo(); ?></div>
-<?php endif; ?> -->
-
 <div class="site-branding">
-
-	<!-- <?php if ( has_custom_logo() && ! $show_title ) : ?>
-		<div class="site-logo"><?php the_custom_logo(); ?></div>
-	<?php endif; ?> -->
 
 	<?php if ( $blog_info ) : ?>
 		<?php if ( is_front_page() && ! is_paged() ) : ?>
@@ -35,7 +27,7 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 	<?php endif; ?>
 
 	<?php if ( $description && true === get_theme_mod( 'display_title_and_tagline', true ) ) : ?>
-		<p class="site-description">
+		<p class="site-description m-0 p-0">
 			<?php echo $description; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		</p>
 	<?php endif; ?>

@@ -1,45 +1,42 @@
 <?php
+
 /**
  * A unique identifier is defined to store the options in the database and reference them from the theme.
  * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
  * If the identifier changes, it'll appear as if the options have been reset.
  * 
- */
- 
- /*
  * This is an example of how to override a default filter
  * for 'textarea' sanitization and $allowedposttags + embed and script.
  */
-add_action('admin_init','optionscheck_change_santiziation', 100);
+add_action('admin_init', 'optionscheck_change_santiziation', 100);
 function optionscheck_change_santiziation() {
-    remove_filter( 'of_sanitize_textarea', 'of_sanitize_textarea' );
-    add_filter( 'of_sanitize_textarea', 'custom_sanitize_textarea' );
+	remove_filter('of_sanitize_textarea', 'of_sanitize_textarea');
+	add_filter('of_sanitize_textarea', 'custom_sanitize_textarea');
 }
 function custom_sanitize_textarea($input) {
-    global $allowedposttags;
-    $custom_allowedtags["embed"] = array(
-      "src" => array(),
-      "type" => array(),
-      "allowfullscreen" => array(),
-      "allowscriptaccess" => array(),
-      "height" => array(),
-          "width" => array()
-      );
-      $custom_allowedtags["script"] = array();
-      $custom_allowedtags = array_merge($custom_allowedtags, $allowedposttags);
-      $output = wp_kses( $input, $custom_allowedtags);
-    return $output;
+	global $allowedposttags;
+	$custom_allowedtags["embed"] = array(
+		"src" => array(),
+		"type" => array(),
+		"allowfullscreen" => array(),
+		"allowscriptaccess" => array(),
+		"height" => array(),
+		"width" => array()
+	);
+	$custom_allowedtags["script"] = array();
+	$custom_allowedtags = array_merge($custom_allowedtags, $allowedposttags);
+	$output = wp_kses($input, $custom_allowedtags);
+	return $output;
 }
 
 function optionsframework_option_name() {
+	// This gets the theme name from the stylesheet
+	$themename = get_option('stylesheet');
+	$themename = preg_replace("/\W/", "_", strtolower($themename));
 
-// This gets the theme name from the stylesheet
-$themename = get_option( 'stylesheet' );
-$themename = preg_replace("/\W/", "_", strtolower($themename) );
-
-$optionsframework_settings = get_option( 'optionsframework' );
-$optionsframework_settings['id'] = $themename;
-update_option( 'optionsframework', $optionsframework_settings );
+	$optionsframework_settings = get_option('optionsframework');
+	$optionsframework_settings['id'] = $themename;
+	update_option('optionsframework', $optionsframework_settings);
 }
 
 /**
@@ -49,317 +46,328 @@ update_option( 'optionsframework', $optionsframework_settings );
  */
 
 function optionsframework_options() {
+	$fontfamily_array = [
+		"" => "Select font-family",
+		"'Alex Brush', cursive" => "'Alex Brush', cursive",
+		"'Beau Rivage', cursive" => "'Beau Rivage', cursive",
+		"'Neonderthaw', cursive" => "'Neonderthaw', cursive",
+		"'Quintessential', cursive" => "'Quintessential', cursive",
+		"'Rubik', sans-serif" => "'Rubik', sans-serif",
+		"'Sacramento', cursive" => "'Sacramento', cursive",
+		"'Shadows Into Light', cursive" => "'Shadows Into Light', cursive",
+		"'Tangerine', cursive" => "'Tangerine', cursive",
+		"'Water Brush', cursive" => "'Water Brush', cursive",
+		"'Waterfall', cursive" => "'Waterfall', cursive"
+	];
+	$bgrepeat_array = [
+		'repeat' => __('repeat', 'options_framework_theme'),
+		'repeat-x' => __('repeat-x', 'options_framework_theme'),
+		'repeat-y' => __('repeat-y', 'options_framework_theme'),
+		'no-repeat' => __('no-repeat', 'options_framework_theme')
+	];
+	$bgposition_array = [
+		'top left' => __('top left', 'options_framework_theme'),
+		'top center' => __('top center', 'options_framework_theme'),
+		'top right' => __('top right', 'options_framework_theme'),
+		'center center' => __('center center', 'options_framework_theme'),
+		'bottom left' => __('bottom left', 'options_framework_theme'),
+		'bottom center' => __('bottom center', 'options_framework_theme'),
+		'bottom right' => __('bottom right', 'options_framework_theme')
+	];
 
-	$bgrepeat_array = array(
-			'stretch' => __('stretch', 'options_framework_theme'),
-			'repeat' => __('repeat', 'options_framework_theme'),
-			'repeat-x' => __('repeat-x', 'options_framework_theme'),
-			'repeat-y' => __('repeat-y', 'options_framework_theme'),
-			'no-repeat' => __('no-repeat', 'options_framework_theme')
-		);
-	$bgposition_array = array(
-			'top left' => __('top left', 'options_framework_theme'),
-			'top center' => __('top center', 'options_framework_theme'),
-			'top right' => __('top right', 'options_framework_theme'),
-			'center center' => __('center center', 'options_framework_theme'),
-			'bottom left' => __('bottom left', 'options_framework_theme'),
-			'bottom center' => __('bottom center', 'options_framework_theme'),
-			'bottom right' => __('bottom right', 'options_framework_theme')
-		);
-	
-	$background_defaults = array('color' => '', 'image' => '', 'repeat' => 'repeat','position' => 'top center','attachment'=>'scroll');
-	
+	$background_defaults = array('color' => '', 'image' => '', 'repeat' => 'repeat', 'position' => 'top center', 'attachment' => 'scroll');
+
 	$options = array();
+	$image_path = get_bloginfo('template_directory') . "/framework/images/";
 
-				
-/* ----------------------------------------------------- */
-/* General Settings */
-/* ----------------------------------------------------- */
-	/*					
-	$options[] = array( "name" => "General Settings",
-						"type" => "heading");
-						
-	$options[] = array( "name" => "Show Notification Bar",
-						"desc" => "Notification Bar (Sliding Bar above Header)",
-						"id" => "infobar_checkbox",
-						"std" => "0", // [0 = uncheck | 1 =  checked]
-						"type" => "checkbox"); 
-						
-	$options[] = array( "name" => "Notification Bar visible on Pageload?",
-						"desc" => "Check if Notification Bar should be visible on Pageload. <br />Make sure to delete Cookies before testing, because the Notification Bar uses cookies - so if you see it closed even though you checked the box just delete cookies and reload the Page - also the other way round.",
-						"id" => "infobar_visible",
-						"std" => "1", // [0 = uncheck | 1 =  checked]
-						"type" => "checkbox"); 
-	
-	$options[] = array( "name" => "Notification Bar Text (above Header)",
-						"desc" => "Notification Bar descriptive Text",
-						"id" => "infobar_text",
-						"std" => "This is an incredibly powerful &amp; fully responsive WordPress Theme. Grab your copy on <a href='http://cybrosolutions.net' target='_blank'>Cybro Solutions</a>",
-						"type" => "textarea"); 
-	
-	$options[] = array( "name" => "Show Latestwork on Home Page",
-						"desc" => "Show Latest Work on Home Page",
-						"id" => "latestwork_checkbox",
-						"std" => "1", // [0 = uncheck | 1 =  checked]
-						"type" => "checkbox"); 
-						
-	$options[] = array( "name" => "Latest Work Text",
-						"desc" => "Descriptive Text of Latest Work on Home Page",
-						"id" => "latestwork_text",
-						"std" => "Maecenas a mi nibh, eu euismod orci. Vivamus viverra lacus vitae tortor molestie malesuada.<br /><br /><a href='#' class='btn'>Show all Works</a>",
-						"type" => "textarea");
-						
-	$options[] = array( "name" => "Show Latest Posts from Blog on Home Page",
-						"desc" => "Show Latest Posts from Blog on Home Page",
-						"id" => "latestposts_checkbox",
-						"std" => "1", // [0 = uncheck | 1 =  checked]
-						"type" => "checkbox"); 
-						
-	$options[] = array( "name" => "Latest Posts Text",
-						"desc" => "Descriptive Text of Latest Posts on Home Page",
-						"id" => "latestposts_text",
-						"std" => "Maecenas a mi nibh, eu euismod orci. Vivamus viverra lacus vitae tortor molestie malesuada.<br /><br /><a href='#' class='btn'>Show all Posts</a>",
-						"type" => "textarea");
-						
-	$options[] = array( "name" => "Show Twitter-Feed above Footer",
-						"desc" => "Show Twitter-Feed above Footer (configure your Twitter Name in Social Media)",
-						"id" => "twitterfooter_checkbox",
-						"std" => "1", // [0 = uncheck | 1 =  checked]
-						"type" => "checkbox");
-	
-	$options[] = array( "name" => "Contact E-Mail",
-						"desc" => "Contact Form E-Mail Address",
-						"id" => "contact_email",
-						"std" => "",
-						"type" => "text");
-	$options[] = array( "name" => "Contact Number",
-						"desc" => "Contact Form Number. Can also be appear in the header.",
-						"id" => "contact_number",
-						"std" => "",
-						"type" => "text");
-						
-	$options[] = array( "name" => "Contact Information",
-						"desc" => "Insert your Contact Information here. This will be display beside the contact form.",
-						"id" => "contact_information",
-						"std" => "Contact Information
-								Cybro Solutions<br />
-								Manila, Philippines 1218 <br />
-								<br /><br />
-
-								Phone: +63 792 2048<br />
-								Email: info@cybrosolutions.net<br />
-								Web: http://cybrosolutions.net<br />",
-						"type" => "textarea");
-	
-	$options[] = array( "name" => "Google Analytics Code",
-						"desc" => "Insert your Google Analytics Code",
-						"id" => "analytics_code",
-						"std" => "",
-						"type" => "textarea");														
-*/
-				
-/* ----------------------------------------------------- */
-/* Theme / Colors */
-/* ----------------------------------------------------- */
-					
-	$options[] = array( 
-		"name" => "Color",
-		"type" => "heading"
-	);
-						
+	/* ----------------------------------------------------- */
+	/* Theme Options */
+	/* ----------------------------------------------------- */
 	$options[] = array(
-		"name" => "Primary Color",
-		"desc" => "Set primary color.",
-		"id" => "primary_colorpicker",
-		"std" => "#0d6efd",
-		"type" => "color"
-	);
-	
-	$options[] = array(
-		"name" => "Secondary Color",
-		"desc" => "Set secondary color.",
-		"id" => "secondary_colorpicker",
-		"std" => "#6c757d",
-		"type" => "color"
-	);
-
-	
-
-
-
-/* ----------------------------------------------------- */
-/* Header Settings */
-/* ----------------------------------------------------- */
-
-	
-	$options[] = array(
-		"name" => "Header Template",
+		"name" => "Theme",
 		"type" => "heading",
 	);
 	$options[] = array(
-		"name" => "Header",
-		"desc" => "Header template showing site's title, tagline, logo and cta buttons.
-				You can change your site's title, tagline, upload logo via <b>'Appearance > Customize > Site Identity'</b>. ",
-		"id" => "header",
-		"options" => array (
-			"0" => get_bloginfo('template_directory') . "/framework/images/header_0.png", 
-			"1" => get_bloginfo('template_directory') . "/framework/images/header_1.png",
-			"2" => get_bloginfo('template_directory') . "/framework/images/header_2.png",
-			"3" => get_bloginfo('template_directory') . "/framework/images/header_3.png"
+		"name" => "Preset Global Theme / Colors",
+		"desc" => "Choose preset theme here or customize. (This will apply globally!)",
+		"id" => "theme",
+		"type" => "radio",
+		"options" => array(
+			"light" => "light",
+			"dark" => "dark",
+			"custom-x" => "custom-x",
 		),
-		"type" => "images",
+		"std" => ""
+	);
+
+	/* ----------------------------------------------------- */
+	/* Typography Options */
+	/* ----------------------------------------------------- */
+	$options[] = array(
+		"name" => "Typography",
+		"type" => "heading",
+	);
+	$options[] = array(
+		"name" => "Custom Global Typography",
+		"desc" => "Enable custom typography. (This will apply globally!)",
+		"id" => "enable_custom_typography",
+		"type" => "checkbox",
 		"std" => "0"
 	);
-						
-						
+	$options[] = array(
+		"name" => "Body Font Family",
+		"desc" => "Select body font-family",
+		"id" => "body_font_family_select",
+		"type" => "select",
+		"options" => $fontfamily_array,
+		"std" => "",
+	);
 
+	$options[] = array(
+		"name" => "Heading Font Family",
+		"desc" => "Select heading font-family. This will apply to H1, H2, H3, H4, H5, H6.",
+		"id" => "headings_font_family_select",
+		"type" => "select",
+		"options" => $fontfamily_array,
+		"std" => "",
+	);
+	$options[] = array(
+		"name" => "Paragraph Font Family",
+		"desc" => "Select paragraph font-family",
+		"id" => "p_font_family_select",
+		"type" => "select",
+		"options" => $fontfamily_array,
+		"std" => "",
+	);
 
-/* ----------------------------------------------------- */
-/* Footer Settings */
-/* ----------------------------------------------------- */
-/*
-$options[] = array( "name" => "Footer",
-						"type" => "heading");
-						
-	$options[] = array( "name" => "Show Footer Menu",
-						"desc" => "Show Footer Bar Menu (Edit your footer menu text and links through Appearance >> Widgets >> Footer Menu)",
-						"id" => "footer_menu_checkbox",
-						"std" => "1",
-						"type" => "checkbox"); 					
-	
-	$options[] = array( "name" => "Misc",
-						"desc" => "You can put some html, text, etc..",
-						"id" => "footer_text",
-						"std" => "",
-						"type" => "textarea");					
-	
-	$options[] = array( "name" => "Footer Logo",
-						"desc" => "Footer Logo",
-						"id" => "footerlogo_upload",
-						"type" => "upload");		
-						
-	$options[] = array( "name" => "Copyright Text",
-						"desc" => "Descriptive Text (under Footer Logo)",
-						"id" => "copyright_text",
-						"std" => "This is an incredibly powerful &amp; fully responsive WordPress Theme.",
-						"type" => "textarea");
-*/
+	/* ----------------------------------------------------- */
+	/* Body Options */
+	/* ----------------------------------------------------- */
+	$options[] = array(
+		"name" => "Body",
+		"type" => "heading"
+	);
+	$options[] = array(
+		"name" => "Custom Body Background and Color",
+		"desc" => "Enable custom body background. (This will apply globally!)",
+		"id" => "enable_custom_body",
+		"type" => "checkbox",
+		"std" => "0"
+	);
+	$options[] = array(
+		"name" => "Custom Body Text Color",
+		"desc" => "Set custom body text color.",
+		"id" => "body_text_color",
+		"type" => "color",
+		"std" => "#ffffff",
+	);
+	$options[] = array(
+		"name" => "Choose Type of Custom Background",
+		"desc" => "Select which background you want to use as default body background",
+		"id" => "background_type",
+		"type" => "radio",
+		"options" => array(
+			"0" => "Solid color",
+			"1" => "Gradient color",
+			"2" => "Background image",
+			"3" => "None"
+		),
+		"std" => "0",
+	);
+	$options[] = array(
+		"name" => "Custom Body Background Color",
+		"desc" => "Set custom body background color.",
+		"id" => "body_bg_color",
+		"type" => "color",
+		"std" => "#444444"
+	);
+	$options[] = array(
+		"name" => "Custom Body Background Gradient",
+		"desc" => "Set custom body background gradient. Note: You may generate your gradient color <a target='_blank' href='https://cssgradient.io/' >here</a>.",
+		"id" => "body_bg_gradient",
+		"type" => "gradient",
+		"std" => "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)"
+	);
+	// Background Image Upload option
+	$options[] = array(
+		"name" => "Default Background Image",
+		"desc" => "Upload custom background image or select from Media Library",
+		"id" => "bgimage_upload",
+		"type" => "upload"
+	);
+	$options[] = array(
+		"name" => "Background Repeat / Stretch",
+		"desc" => "Set background image repeat. (This option only applies to background image if enabled.)",
+		"id" => "bgrepeat_select",
+		"type" => "select",
+		"options" => $bgrepeat_array,
+		"std" => "no-repeat"
+	);
+	$options[] = array(
+		"name" => "Background Attachement",
+		"desc" => "Set background image attachement. (This option only applies to background image if enabled.)",
+		"id" => "bgattachement_select",
+		"type" => "select",
+		"options" => array(
+			'scroll' => __('scroll', 'options_framework_theme'),
+			'fixed' => __('fixed', 'options_framework_theme')
+		),
+		"std" => "scroll"
+	);
+	$options[] = array(
+		"name" => "Background Position (if repeated)",
+		"desc" => "Set background image position. (This option only applies to background image if enabled.)",
+		"id" => "bgposition_select",
+		"type" => "select",
+		"options" => $bgposition_array,
+		"std" => "top center"
+	);
+	$options[] = array(
+		"name" => "Background Size",
+		"desc" => "Set background image size. Learn how to specify the background size <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/background-size'>here</a>. (This option only applies to background image if enabled.)",
+		"id" => "bgimage_size",
+		"type" => "text",
+		"std" => "cover"
+	);
 
-/* ----------------------------------------------------- */
-/* Social Media */
-/* ----------------------------------------------------- */
-/*						
-	$options[] = array( "name" => "Social Media",
-						"type" => "heading");
-	
-	$options[] = array( "name" => "Twitter",
-						"desc" => "Twitter Username",
-						"id" => "twitter_url",
-						"std" => "",
-						"type" => "text");
-						
-	$options[] = array( "name" => "Facebook",
-						"desc" => "Facebook Url",
-						"id" => "facebook_url",
-						"std" => "",
-						"type" => "text");
-						
-*/						
+	/* ----------------------------------------------------- */
+	/* Header Options */
+	/* ----------------------------------------------------- */
+	$options[] = array(
+		"name" => "Header",
+		"type" => "heading",
+	);
+	$options[] = array(
+		"name" => "Header layout",
+		"desc" => "Choose your header layout showing site's title, tagline, logo and cta buttons.
+			You can change your site's title, tagline, upload logo via <b>'Appearance > Customize > Site Identity'</b>. ",
+		"id" => "header_type",
+		"type" => "images",
+		"options" => array(
+			"0" => $image_path . "header_0.png",
+			"1" => $image_path . "header_1.png",
+			"2" => $image_path . "header_2.png",
+			"3" => $image_path . "header_3.png"
+		),
+		"std" => "0"
+	);
+	$options[] = array(
+		"name" => "Custom Header theme",
+		"desc" => "Enable custom header background and color.",
+		"id" => "enable_custom_header",
+		"type" => "checkbox",
+		"std" => "0"
+	);
+	$options[] = array(
+		"name" => "Custom Header Color",
+		"desc" => "Set custom header color.",
+		"id" => "custom_header_color",
+		"type" => "color",
+		"std" => "#ffffff",
+	);
+	$options[] = array(
+		"name" => "Custom Header Background Color",
+		"desc" => "Set custom header background color.",
+		"id" => "custom_header_bg_color",
+		"type" => "color",
+		"std" => "#000000",
+	);
+	$options[] = array(
+		"name" => "Custom Header Background Gradient",
+		"desc" => "Set custom header background gradient. Note: You may generate your gradient color <a target='_blank' href='https://cssgradient.io/' >here</a>.",
+		"id" => "custom_header_bg_gradient",
+		"type" => "gradient",
+		"std" => "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(70,0,255,1) 100%)"
+	);
 
-/* ----------------------------------------------------- */
-/* Slider */
-/* ----------------------------------------------------- */
-/*						
-	$options[] = array( "name" => "Slider",
-						"type" => "heading");
-						
-	$options[] = array( "name" => "Use Royal Slider",
-						"desc" => "Use Royal Slider as Slider plugin?  Check this to enable Royal Slider",
-						"id" => "royalslider_checkbox",
-						"std" => "0",
-						"type" => "checkbox"); 					
-	
-	$options[] = array( "name" => "Slide 1",
-						"desc" => "Image size should be 940px by 430px.",
-						"id" => "slide1_upload",
-						"type" => "upload");
-	
-	$options[] = array( "name" => "Slide 1 Caption",
-						"desc" => "Caption for Slide 1. Can put HTML ex: <p></p>",
-						"id" => "slide1_caption",
-						"std" => "",
-						"type" => "textarea");
-						
-	$options[] = array( "name" => "Slide 1 URL",
-						"desc" => "URL for Slide 1",
-						"id" => "slide1_url",
-						"std" => "",
-						"type" => "text");
-	
-	$options[] = array( "name" => "Slide 2",
-						"desc" => "Image size should be 940px by 430px.",
-						"id" => "slide2_upload",
-						"type" => "upload");
-						
-	$options[] = array( "name" => "Slide 2 Caption",
-						"desc" => "Caption for Slide 2",
-						"id" => "slide2_caption",
-						"std" => "",
-						"type" => "textarea");
-						
-	$options[] = array( "name" => "Slide 2 URL",
-						"desc" => "URL for Slide 2",
-						"id" => "slide2_url",
-						"std" => "",
-						"type" => "text");
-	
-	$options[] = array( "name" => "Slide 3",
-						"desc" => "Image size should be 940px by 430px.",
-						"id" => "slide3_upload",
-						"type" => "upload");
-						
-	$options[] = array( "name" => "Slide 3 Caption",
-						"desc" => "Caption for Slide 3",
-						"id" => "slide3_caption",
-						"std" => "",
-						"type" => "textarea");
-						
-	$options[] = array( "name" => "Slide 3 URL",
-						"desc" => "URL for Slide 3",
-						"id" => "slide3_url",
-						"std" => "",
-						"type" => "text");
-*/						
+	/* ----------------------------------------------------- */
+	/* Navbar Options */
+	/* ----------------------------------------------------- */
+	$options[] = array(
+		"name" => "Navbar",
+		"type" => "heading",
+	);
+	$options[] = array(
+		"name" => "Navbar layout",
+		"desc" => "Choose your navbar layout.",
+		"id" => "navbar_type",
+		"type" => "images",
+		"options" => array(
+			"expand-center" => $image_path . "nav_center.png",
+			"expand" => $image_path . "nav_expand.png",
+			"expand-md" => $image_path . "nav_expand_md.png",
+			"expand-no" => $image_path . "nav_no_expand.png",
+		),
+		"std" => "expand-md"
+	);
+	$options[] = array(
+		"name" => "Custom Navbar theme",
+		"desc" => "Enable custom navbar background and color.",
+		"id" => "enable_custom_navbar",
+		"type" => "checkbox",
+		"std" => "0"
+	);
+	$options[] = array(
+		"name" => "Custom Navbar Color",
+		"desc" => "Set custom navbar color.",
+		"id" => "custom_navbar_color",
+		"type" => "color",
+		"std" => "#ffffff",
+	);
+	$options[] = array(
+		"name" => "Custom Navbar Background Color",
+		"desc" => "Set custom navbar background color.",
+		"id" => "custom_navbar_bg_color",
+		"type" => "color",
+		"std" => "#444444",
+	);
+	$options[] = array(
+		"name" => "Custom Navbar Background Gradient",
+		"desc" => "Set custom navbar background gradient. Note: You may generate your gradient color <a target='_blank' href='https://cssgradient.io/' >here</a>.",
+		"id" => "custom_navbar_bg_gradient",
+		"type" => "gradient",
+		"std" => "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(70,0,255,1) 100%)"
+	);
 
-/* ----------------------------------------------------- */
-/* Miscellaneous */
-/* ----------------------------------------------------- */
-/*						
-	$options[] = array( "name" => "Miscellaneous",
-						"type" => "heading");
-	
-	$options[] = array( "name" => "Payment Method",
-						"desc" => "Upload Paypal logo here if you accept Paypal as payment method.",
-						"id"   => "paypal_logo_upload",
-						"type" => "upload");
-	$options[] = array( 
-						"desc" => "Upload Credit Card logo here if you accept Credit Card as payment method.",
-						"id"   => "cc_logo_upload",
-						"type" => "upload");					
-						
-	$options[] = array( 
-						"desc" => "Upload Bank Logo Here if you accept Bank Deposit as payment method.",
-						"id"   => "bank_logo_upload",
-						"type" => "upload");
-	
-	$options[] = array( 
-						"desc" => "Upload other Bank Logo Here if you accept some other Bank Deposit as payment method.",
-						"id"   => "bank_logo_upload2",
-						"type" => "upload");
-*/
-/* ----------------------------------------------------- */
-/* EOF */
-/* ----------------------------------------------------- */
-									
+	/* ----------------------------------------------------- */
+	/* Footer Options */
+	/* ----------------------------------------------------- */
+	$options[] = array(
+		"name" => "Footer",
+		"type" => "heading"
+	);
+	$options[] = array(
+		"name" => "Custom Footer theme",
+		"desc" => "Enable custom footer background and color.",
+		"id" => "enable_custom_footer",
+		"type" => "checkbox",
+		"std" => "0"
+	);
+	$options[] = array(
+		"name" => "Custom Footer Color",
+		"desc" => "Set custom footer color.",
+		"id" => "custom_footer_color",
+		"type" => "color",
+		"std" => "#ffffff",
+	);
+	$options[] = array(
+		"name" => "Custom Footer Background Color",
+		"desc" => "Set custom footer background color.",
+		"id" => "custom_footer_bg_color",
+		"type" => "color",
+		"std" => "#444444",
+	);
+	$options[] = array(
+		"name" => "Custom Footer Background Gradient",
+		"desc" => "Set custom footer background gradient. Note: You may generate your gradient color <a target='_blank' href='https://cssgradient.io/' >here</a>.",
+		"id" => "custom_footer_bg_gradient",
+		"type" => "gradient",
+		"std" => "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(70,0,255,1) 100%)"
+	);
+
+	/* ----------------------------------------------------- */
+	/* EOF */
+	/* ----------------------------------------------------- */
+
 	return $options;
 }

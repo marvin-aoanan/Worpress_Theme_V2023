@@ -160,14 +160,14 @@
 	background-position: bottom;
 }
 
-.colorSelector {
+.colorSelector, .gradientSelector {
     position: relative;
     width: 27px;
     height: 27px;
     background: url(../images/colorpicker/select.png);
     float:left;
 }
-.colorSelector div {
+.colorSelector div, .gradientSelector div {
     position: absolute;
     top: 4px;
     left: 3px;

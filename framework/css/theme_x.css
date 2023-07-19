@@ -1,0 +1,77 @@
+/**
+* Custom theme by: Cybro Services
+*/
+[data-bs-theme=custom-x] {
+    color-scheme: custom-x;
+
+    --bs-primary: #FF9A76;
+    --bs-secondary: #679B9B;
+    --bs-success: #679B9B;
+    --bs-warning: #FF9A76;
+    --bs-light: #FFEADB;
+    --bs-dark: #637373;
+
+    --bs-primary-rgb: 255, 154, 118;
+    --bs-secondary-rgb: 103, 155, 155;
+
+    --bs-success-rgb: rgb(103, 155, 155);
+    --bs-warning-rgb: rgb(255, 154, 118);
+    --bs-light-rgb: rgb(255, 234, 219);
+    --bs-dark-rgb: rgb(99, 115, 115);
+
+/* Mods */
+    --bs-body-color: var(--bs-dark);
+    --bs-body-color-rgb: var(--bs-dark-rgb);
+    --bs-body-bg: var(--bs-light);
+    --bs-body-bg-rgb: var(--bs-light-rgb);
+    --bs-emphasis-color: #fff;
+    --bs-emphasis-color-rgb: 255, 255, 255;
+    --bs-secondary-color: rgba(173, 181, 189, 0.75);
+    --bs-secondary-color-rgb: 173, 181, 189;
+    --bs-secondary-bg: #343a40;
+    --bs-secondary-bg-rgb: 52, 58, 64;
+    --bs-tertiary-color: rgba(173, 181, 189, 0.5);
+    --bs-tertiary-color-rgb: 173, 181, 189;
+    --bs-tertiary-bg: #2b3035;
+    --bs-tertiary-bg-rgb: 43, 48, 53;
+    --bs-primary-text-emphasis: #6ea8fe;
+    --bs-secondary-text-emphasis: #a7acb1;
+    --bs-success-text-emphasis: #75b798;
+    --bs-info-text-emphasis: #6edff6;
+    --bs-warning-text-emphasis: #ffda6a;
+    --bs-danger-text-emphasis: #ea868f;
+    --bs-light-text-emphasis: #f8f9fa;
+    --bs-dark-text-emphasis: #dee2e6;
+    --bs-primary-bg-subtle: #031633;
+    --bs-secondary-bg-subtle: #161719;
+    --bs-success-bg-subtle: #051b11;
+    --bs-info-bg-subtle: #032830;
+    --bs-warning-bg-subtle: #332701;
+    --bs-danger-bg-subtle: #2c0b0e;
+    --bs-light-bg-subtle: #343a40;
+    --bs-dark-bg-subtle: #1a1d20;
+    --bs-primary-border-subtle: #084298;
+    --bs-secondary-border-subtle: #41464b;
+    --bs-success-border-subtle: #0f5132;
+    --bs-info-border-subtle: #087990;
+    --bs-warning-border-subtle: #997404;
+    --bs-danger-border-subtle: #842029;
+    --bs-light-border-subtle: #495057;
+    --bs-dark-border-subtle: #343a40;
+    --bs-heading-color: inherit;
+    --bs-link-color: #6ea8fe;
+    --bs-link-hover-color: #8bb9fe;
+    --bs-link-color-rgb: 110, 168, 254;
+    --bs-link-hover-color-rgb: 139, 185, 254;
+    --bs-code-color: #e685b5;
+    --bs-border-color: #495057;
+    --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+    --bs-form-valid-color: #75b798;
+    --bs-form-valid-border-color: #75b798;
+    --bs-form-invalid-color: #ea868f;
+    --bs-form-invalid-border-color: #ea868f;
+
+}
+
+
+/* https://colorhunt.co/palette/f4e0b9a8a1967d7463fe0000 */

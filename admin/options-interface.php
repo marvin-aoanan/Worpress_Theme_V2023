@@ -196,6 +196,11 @@ function optionsframework_fields() {
 			$output .= '<div id="' . esc_attr( $value['id'] . '_picker' ) . '" class="colorSelector"><div style="' . esc_attr( 'background-color:' . $val ) . '"></div></div>';
 			$output .= '<input class="of-color" name="' . esc_attr( $option_name . '[' . $value['id'] . ']' ) . '" id="' . esc_attr( $value['id'] ) . '" type="text" value="' . esc_attr( $val ) . '" />';
 			break;
+		
+		case 'gradient':
+			$output .= '<div id="' . esc_attr( $value['id'] . '_picker' ) . '" class="gradientSelector"><div style="' . esc_attr( 'background-image:' . $val ) . '"></div></div>';
+			$output .= '<input id="' . esc_attr( $value['id'] ) . '" class="of-input of-input-gradient" name="' . esc_attr( $option_name . '[' . $value['id'] . ']' ) . '" type="text" value="' . esc_attr( $val ) . '" />';
+			break;
 
 		// Uploader
 		case "upload":
@@ -209,7 +214,7 @@ function optionsframework_fields() {
 
 			// Font Size
 			$output .= '<select class="of-typography of-typography-size" name="' . esc_attr( $option_name . '[' . $value['id'] . '][size]' ) . '" id="' . esc_attr( $value['id'] . '_size' ) . '">';
-			for ($i = 9; $i < 71; $i++) {
+			for ($i = 0; $i < 100; $i++) {
 				$size = $i . 'px';
 				$output .= '<option value="' . esc_attr( $size ) . '" ' . selected( $typography_stored['size'], $size, false ) . '>' . esc_html( $size ) . '</option>';
 			}

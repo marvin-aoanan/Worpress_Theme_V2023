@@ -4,6 +4,8 @@
 
 add_filter( 'of_sanitize_text', 'sanitize_text_field' );
 
+add_filter( 'of_sanitize_gradient', 'sanitize_text_field' );
+
 /* Textarea */
 
 function of_sanitize_textarea($input) {
