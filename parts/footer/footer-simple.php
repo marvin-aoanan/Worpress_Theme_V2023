@@ -4,7 +4,7 @@
     <small>&copy; <?php echo date("Y"); ?> <span class="bloginfo_name"><?php echo " "; bloginfo('name'); ?></span>.
     </small>
   </p>
-  <p class="m-0 p-0"><small>Rights Reserved.</small></p>
+  <p class="m-0 p-0"><small>All Rights Reserved.</small></p>
 
   </div>
   
