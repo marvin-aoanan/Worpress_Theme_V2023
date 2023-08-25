@@ -34,7 +34,7 @@ if ($option_type == 0) {
 <?php if($enable_custom_typography == 1) { ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Beau+Rivage&family=Neonderthaw&family=Quintessential&family=Rubik:wght@400;700&family=Sacramento&family=Shadows+Into+Light&family=Tangerine:wght@400;700&family=Water+Brush&family=Waterfall&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Beau+Rivage&family=Big+Shoulders+Display:wght@400;600;900&family=Neonderthaw&family=Quintessential&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:wght@400;700&family=Sacramento&family=Shadows+Into+Light&family=Tangerine:wght@400;700&family=Water+Brush&family=Waterfall&display=swap" rel="stylesheet">
 <?php } ?>
 
 <?php if($option_enable == 1) { ?>

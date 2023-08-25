@@ -1,0 +1,38 @@
+:root {
+    --cs-spacer: 4px;
+    --cs-gap: 4px;
+    --cs-radius: 4px;
+    --cs-pad: 4px;
+
+    --cs-color-1: #021383;
+    --cs-color-2: #8844BB;
+    --cs-color-3: #444BBB;
+    
+    --cs-gradient-light-1: linear-gradient(213deg, var(--cs-color-1) 0%, var(--cs-white) 100%);
+    --cs-gradient-light-2: linear-gradient(213deg, var(--cs-color-2) 0%, var(--cs-white) 100%);
+    --cs-gradient-light-3: linear-gradient(213deg, var(--cs-color-3) 0%, var(--cs-white) 100%);
+    --cs-gradient-dark-1: linear-gradient(213deg, var(--cs-color-1) 0%, var(--cs-black) 100%);
+    --cs-gradient-dark-2: linear-gradient(213deg, var(--cs-color-2) 0%, var(--cs-black) 100%);
+    --cs-gradient-dark-3: linear-gradient(213deg, var(--cs-color-3) 0%, var(--cs-black) 100%);
+
+    --cs-gradient-4: linear-gradient(11deg, var(--cs-color-2) 0%, var(--cs-color-1) 50%, var(--cs-color-3) 100%);
+
+    /* Color Shades */
+    --cs-gray-9: #999;
+    --cs-gray-8: #888;
+    --cs-gray-7: #777;
+    --cs-gray-6: #666;
+    --cs-gray-5: #555;
+    --cs-gray-4: #444;
+    --cs-gray-3: #333;
+    --cs-gray-2: #222;
+    --cs-gray-1: #111;
+    --cs-black: #000;
+    --cs-white: #FFF;
+    --cs-light-a: #AAA;
+    --cs-light-b: #BBB;
+    --cs-light-c: #CCC;
+    --cs-light-d: #DDD;
+    --cs-light-e: #EEE;
+
+}

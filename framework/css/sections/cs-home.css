@@ -1,0 +1,33 @@
+@import url('./cs-hero.css');
+@import url('./cs-services.css');
+
+.content.home {
+    margin: 0 calc(var(--cs-pad) * -4);
+    display: flex;
+    flex-direction: column;
+}
+
+.section-wrapper {
+    position: relative;
+    min-height: 200px;
+}
+.section-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.section-background {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.featured-image {
+    width: clamp(150px, 80%, 300px);
+}

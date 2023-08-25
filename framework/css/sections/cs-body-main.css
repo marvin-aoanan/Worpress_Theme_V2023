@@ -1,0 +1,25 @@
+:root {
+    --cs-body-font-family : 'Roboto', sans-serif;
+    --cs-heading-font-family : 'Big Shoulders Display', cursive;
+}
+
+html.is-active {
+    overflow: hidden;
+    /* height: 100vh; */
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--cs-heading-font-family);
+}
+
+.site-main {
+    position: relative;
+    min-height: calc(100vh - var(--wp-admin--admin-bar--height, 0px) - var(--header-height, 0px) - var(--footer-height, 0px));
+    /* height: calc(100vh - var(--wp-admin--admin-bar--height, 0px) - var(--header-height, 0px) - var(--footer-height, 0px)); */
+    padding-left: calc(var(--cs-pad) * 4);
+    padding-right: calc(var(--cs-pad) * 4);
+    margin: 0 auto;
+    overflow-wrap: break-word;
+}

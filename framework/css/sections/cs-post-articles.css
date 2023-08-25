@@ -1,0 +1,106 @@
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;  
+    
+}
+.posts article {
+    border-radius: 16px;
+    padding: 16px 24px;
+    background-color: #1114;
+    border: 1px solid #ccc3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.posts .entry-content img {
+    border-radius: 8px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 160px;
+    margin: 8px auto;
+}
+.entry-excerpt {
+    display: flex;
+    flex-direction: column;
+}
+.post .meta {
+    display: flex;
+    justify-content: space-between;
+}
+.post a.read-more {
+    align-self: self-end;
+    margin: 8px 0;
+    padding: 8px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.post_navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+/* Comments Section */
+.comments-section {
+    color: var(--cs-light-b);
+    font-size: 10px;
+}
+.comments-section h2 {
+    font-size: 24px;
+}
+.comments-section article {
+    border-radius: 0;
+}
+.comments-section .comment-content  {
+    color: var(--cs-white);
+    font-size: 12px;
+}
+.comments-section footer {
+    margin: 0;
+    padding: 0;
+}
+.comments-section a,
+.comments-section a:visited, 
+.comments-section a:active {
+    color: var(--cs-light-b);
+}
+.comments-section img {
+    border-radius: 100%;
+}
+.comments-section li {
+    list-style: none;
+}
+.comments-section .submit {
+    padding: 8px;
+    font-size: 14px;
+    background-color: var(--cs-light-a);
+    border: 0;
+    outline: 0;
+}
+
+/* Small devices (landscape phones, 400px and up) */
+@media (min-width: 0px) and (max-width: 440px) { 
+    .posts {
+        grid-template-columns: repeat(1,minmax(0,1fr));
+    }
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 1024px)
+{
+    .posts {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+
+}
+
+@media (min-width: 1440px)
+{
+    .posts {
+        grid-template-columns: repeat(4,minmax(0,1fr));
+    }
+
+}

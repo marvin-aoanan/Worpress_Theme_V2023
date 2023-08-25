@@ -1,0 +1,8 @@
+.site-main a {
+    color: var(--cs-light-b);
+}
+.site-main a:hover,
+.site-main a:active,
+.site-main a:visited {
+    color: var(--cs-white);
+}

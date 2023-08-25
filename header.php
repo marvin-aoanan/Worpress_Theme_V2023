@@ -5,11 +5,11 @@
  *
  * This is the template that displays all of the <head> section and everything up until main.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * @link https://www.cybroservices.com
  *
  * @package WordPress
- * @subpackage Cybro_Solutions_Theme
- * @since Cybro Solutions 2.0.23
+ * @subpackage Cybro_Services_Theme
+ * @since Cybro Services 2.0.23
  */
 
 ?>

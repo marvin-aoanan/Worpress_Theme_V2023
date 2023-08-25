@@ -1,0 +1,32 @@
+.btn {
+    display: block;
+    width: clamp(200px, 50%, 400px);
+    margin: 0 auto;
+}
+.hr-line {
+    display: block;
+    clear: both;
+    width: inherit;
+    margin: 0 auto;
+    background-color: #44444480;
+    height: 1px;
+    position: relative;
+}
+.hr-line:before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: -12px;
+    right: 0;
+    margin: 0 auto;
+    display: block;
+    width: inherit;
+    background: linear-gradient(4deg, #84B 0%, #021383 50%, #444BBB 100%);
+    color: white;
+    text-align: center;  
+}
+img, video, audio {
+    height: auto;
+    max-width: 100%;
+    display: block;
+}

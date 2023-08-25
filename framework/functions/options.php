@@ -48,16 +48,8 @@ function optionsframework_option_name() {
 function optionsframework_options() {
 	$fontfamily_array = [
 		"" => "Select font-family",
-		"'Alex Brush', cursive" => "'Alex Brush', cursive",
-		"'Beau Rivage', cursive" => "'Beau Rivage', cursive",
-		"'Neonderthaw', cursive" => "'Neonderthaw', cursive",
-		"'Quintessential', cursive" => "'Quintessential', cursive",
-		"'Rubik', sans-serif" => "'Rubik', sans-serif",
-		"'Sacramento', cursive" => "'Sacramento', cursive",
-		"'Shadows Into Light', cursive" => "'Shadows Into Light', cursive",
-		"'Tangerine', cursive" => "'Tangerine', cursive",
-		"'Water Brush', cursive" => "'Water Brush', cursive",
-		"'Waterfall', cursive" => "'Waterfall', cursive"
+		"'Big Shoulders Display', cursive" => "'Big Shoulders Display', cursive",
+		"'Roboto', sans-serif;" => "'Roboto', sans-serif;"
 	];
 	$bgrepeat_array = [
 		'repeat' => __('repeat', 'options_framework_theme'),

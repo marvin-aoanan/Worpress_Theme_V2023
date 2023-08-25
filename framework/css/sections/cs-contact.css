@@ -1,0 +1,98 @@
+#cs-contact {
+    width: clamp(300px, 90%, 1000px);
+}
+#cs-quick-contact {
+    /* display: block; */
+    width: clamp(300px, 90%, 600px);
+}
+.cs-contact {
+    background: #FFFFFF;
+    color: #444444;  
+    border: 1px solid var(--cs-light-e);
+    position: relative;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border-radius: 0;
+    -webkit-clip-path: polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%);
+    clip-path: polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%);
+}
+.cs-contact::after {
+    content: "";
+    width: 32px;
+    height: 32px;
+    border-width: 32px 0 0 32px;
+    border-color: var(--cs-light-d);
+    background-image: var(--cs-gradient-4);
+    border-style: solid;
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    -webkit-backdrop-filter: blur(11px);
+    backdrop-filter: blur(11px);
+    box-shadow: -2px 4px 12px var(--cs-light-a);
+}
+
+.cs-contact .cs-form-control {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #44444480;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    outline: 0;
+    padding-left: 34px;
+    background-size: 24px;
+}
+.cs-contact textarea.cs-form-control {
+    height: 100px;
+}
+.cs-contact .wpcf7-not-valid-tip {
+    position: relative;
+    border: 1px solid red;
+    width: auto;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+}
+.wpcf7-not-valid-tip::before {
+    content: "";
+    border: 1px solid red;
+    border-right: #FFF;
+    border-bottom: #FFF;
+    width: 14px;
+    height: 14px;
+    display: block;
+    transform: rotate(45deg);
+    background: #FFF;
+    position: absolute;
+    top: -8px;
+    left: 44px;
+}
+.cs-form-btn {
+    position: relative;
+}
+form.submitting .wpcf7-submit {
+    cursor: not-allowed;
+    background: #444444b4;
+    border: 0;
+    opacity: 0.4;
+}
+form .wpcf7-spinner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 6px;
+    bottom: 6px;
+    display: block;
+}
+.wpcf7 form .wpcf7-response-output {
+    margin: 0 auto;
+}

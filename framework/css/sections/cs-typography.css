@@ -1,0 +1,12 @@
+h1, h2, h3, h4, h5, h6 {
+    padding-top: calc(var(--cs-pad) * 2);
+    padding-bottom: calc(var(--cs-pad) * 2);
+}
+ol, ul {
+    padding-left: calc(var(--cs-pad) * 6);
+}
+p, li {
+    padding-top: calc(var(--cs-pad) * 1);    
+    padding-bottom: calc(var(--cs-pad) * 4); 
+}
+

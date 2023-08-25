@@ -5,11 +5,11 @@
  *
  * Contains the closing of the #content div and all content after.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * @link https://www.cybroservices.com
  *
  * @package WordPress
- * @subpackage Cybro_Solutions_Theme
- * @since Cybro Solutions 2.0.23
+ * @subpackage Cybro_Services_Theme
+ * @since Cybro Services 2.0.23
  */
 ?>
 </main><!-- #main -->
