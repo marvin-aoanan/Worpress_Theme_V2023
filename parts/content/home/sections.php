@@ -71,7 +71,7 @@ if ($field['show'] && $section_name == 'section-services') {
                             <h2><?php echo $caption['title']; ?></h2>
                             <p><?php echo $caption['subtitle']; ?></p>
                             <?php if ($caption['show_link']) { ?>
-                                <a href="<?php echo $caption['link']['url']; ?>" class="btn btn-lg btn-outline-info">
+                                <a href="<?php echo $caption['link']['url']; ?>" class="link">
                                     <?php echo $caption['link']['title']; ?>
                                 </a>
                             <?php } ?>
