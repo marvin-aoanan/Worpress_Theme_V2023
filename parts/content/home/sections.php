@@ -58,7 +58,7 @@ if ($field['show'] && $section_name == 'section-services') {
 
             <?php if (($featured['show_featured'] && $featured['featured_image']) || ($caption['title'] || $caption['subtitle'])) // Check if fields have content
             { ?>
-                <div class="section-content">
+                <div class="section-content <?php if($bg_file['url']) { echo 'section-content-with-bg'; } ?>">
                     <?php if ($featured['show_featured'] && $featured['featured_image']) { ?>
                         <div class="featured-<?php echo $featured['featured_image']['type']; ?>">
                             <img src="<?php echo $featured_image; ?>" draggable="true" alt="<?php echo $featured['featured_image']['title']; ?>">

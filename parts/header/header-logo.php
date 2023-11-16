@@ -14,7 +14,7 @@ $header_class = $show_title ? 'site-title' : 'screen-reader-text';
 
 ?>
 <?php if ( has_custom_logo() ) : ?>
-	<div class="site-logo"><?php the_custom_logo(); ?></div>
+	<div class="site-logo"><a href="<?php echo get_home_url(); ?>"><?php the_custom_logo(); ?></a></div>
 <?php endif; ?>
 <div class="site-branding">
 	<?php if ( $description && true === get_theme_mod( 'display_title_and_tagline', true ) ) : ?>

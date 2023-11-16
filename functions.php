@@ -411,21 +411,27 @@ class Person
 //add_action('dynamic_sidebar', [$person, 'getPerson']);
 //add_action('the_header', [$person, 'getPerson']);
 
-/* Enqueu Bootsrap CSS */
+/* Enqueu Bootstrap via CDN */
 // function enqueue_bootstrapCDN() {
 //    wp_enqueue_style("bootstrapCss", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
 //    wp_enqueue_style("bootstrapIcons", "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 //    wp_enqueue_script("bootstrapJs", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js");
 //  }
 
+// Enqueu Bootstrap Local  */
 function enqueue_bootstrap()
 {
 	wp_enqueue_style("bootstrapCss", get_template_directory_uri() . "/framework/vendor/bootstrap-5/css/bootstrap.min.css");
-	//wp_enqueue_style("bootstrapIcons", "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 	wp_enqueue_script("bootstrapJs", get_template_directory_uri() . "/framework/vendor/bootstrap-5/js/bootstrap.min.js");
 }
-
 add_action("wp_enqueue_scripts", "enqueue_bootstrap");
+
+function enqueue_fontawesome() {
+	wp_enqueue_style("fontawesomeCss", get_template_directory_uri() . "/framework/vendor/fontawesome-free-6.4.2-web/css/all.min.css");
+	wp_enqueue_script("fontawesomeJs", get_template_directory_uri() . "/framework/vendor/fontawesome-free-6.4.2-web/js/all.min.js");
+}
+
+add_action("wp_enqueue_scripts", "enqueue_fontawesome");
 
 // enqueue custom.js
 function enqueue_custom_js()
