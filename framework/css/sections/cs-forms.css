@@ -1,3 +1,17 @@
 textarea {
     width: 100%;
 }
+.wpcf7-form-control-wrap {
+    width: 100%;
+}
+.cs-form-field p {
+    margin: 0;
+    padding: 0;
+}
+.cs-form-field .icon {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.cs-form-field .icon::before {
+    margin: 10px 0;
+}

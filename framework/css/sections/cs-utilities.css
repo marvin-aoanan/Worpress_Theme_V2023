@@ -1,6 +1,7 @@
 .btn {
     display: block;
-    width: clamp(200px, 50%, 400px);
+    /* width: clamp(200px, 50%, 400px); */
+    width: fit-content;
     margin: 0 auto;
 }
 .hr-line {

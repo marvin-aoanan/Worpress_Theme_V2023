@@ -428,7 +428,7 @@ add_action("wp_enqueue_scripts", "enqueue_bootstrap");
 
 function enqueue_fontawesome() {
 	wp_enqueue_style("fontawesomeCss", get_template_directory_uri() . "/framework/vendor/fontawesome-free-6.4.2-web/css/all.min.css");
-	wp_enqueue_script("fontawesomeJs", get_template_directory_uri() . "/framework/vendor/fontawesome-free-6.4.2-web/js/all.min.js");
+	//wp_enqueue_script("fontawesomeJs", get_template_directory_uri() . "/framework/vendor/fontawesome-free-6.4.2-web/js/all.min.js");
 }
 
 add_action("wp_enqueue_scripts", "enqueue_fontawesome");

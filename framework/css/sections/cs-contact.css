@@ -46,8 +46,9 @@
     font-weight: 400;
     margin: 0;
     outline: 0;
-    padding-left: 34px;
+    /* padding-left: 34px;  */
     background-size: 24px;
+    font-family: system-ui;
 }
 .cs-contact textarea.cs-form-control {
     height: 100px;
@@ -57,22 +58,23 @@
     border: 1px solid red;
     width: auto;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 2px;
     padding: 4px 8px;
     font-size: 11px;
+    font-family: system-ui;
 }
 .wpcf7-not-valid-tip::before {
     content: "";
     border: 1px solid red;
     border-right: #FFF;
     border-bottom: #FFF;
-    width: 14px;
-    height: 14px;
+    width: 8px;
+    height: 8px;
     display: block;
     transform: rotate(45deg);
     background: #FFF;
     position: absolute;
-    top: -8px;
+    top: -5px;
     left: 44px;
 }
 .cs-form-btn {

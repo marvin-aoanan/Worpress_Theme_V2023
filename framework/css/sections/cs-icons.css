@@ -1,39 +1,61 @@
+/* SVG icons */
+
 .home .icon {
-    background-image: url('../../images/house-heart.svg');
+    /* background-image: url('../../images/house-heart.svg'); */
 }
+
 .services .icon {
     background-image: url('../../images/rocket-takeoff.svg');
 }
+
 .why-us .icon {
     background-image: url('../../images/tencent-qq.svg');
 }
+
 .tech-trends .icon {
     background-image: url('../../images/journal-code.svg');
 }
+
 .projects .icon {
     background-image: url('../../images/boxes.svg');
 }
+
 .icon-person {
     background: url('../../images/person.svg') left center no-repeat;
 }
+
 .icon-email {
     background: url('../../images/envelope-at.svg') left center no-repeat;
 }
+
 .icon-company {
     background: url('../../images/buildings.svg') left center no-repeat;
 }
+
 .icon-phone {
-    background: url('../../images/telephone.svg') left center no-repeat ;
+    background: url('../../images/telephone.svg') left center no-repeat;
 }
+
 .icon-message {
     background: url('../../images/envelope-open-heart.svg') left 8px no-repeat;
 }
-.arrow-right-circle .icon  {
+
+.arrow-right-circle .icon {
     background-image: url('../../images/arrow-right-circle.svg');
 }
-.arrow-right-square .icon  {
+
+.arrow-right-square .icon {
     background-image: url('../../images/arrow-right-square.svg');
 }
-.arrow-right-short .icon  {
+
+.arrow-right-short .icon {
     background-image: url('../../images/arrow-right-short.svg');
+}
+
+
+/* Font awesome pseudo icons */
+.icon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 }

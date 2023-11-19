@@ -4,7 +4,8 @@ wp_nav_menu(array(
     'theme_location' => 'secondary-menu',
     'menu_class'      => 'menu menu-icon',
     'link_before'     => '<span class="icon icon-before"></span>',
-    'link_after'      => '<span class="icon icon-after"></span>'
+    //'link_after'      => '<span class="icon icon-after"></span>', using icon image
+    'link_after'      => '<span class="icon fa-solid fa-arrow-right"></span>', // using font-awesome icon
 ));
 
 // References:
