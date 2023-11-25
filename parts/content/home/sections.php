@@ -18,16 +18,27 @@ if ($featured['featured_image']) {
 }
 //print_r($featured['featured_image']['sizes'][$select_size]);
 
-// Get Background
-$bg_file = $field['background']['file']; // get object path or url
+// Get Background Color or Image
+
+// print_r($field['background']['color']);
 $bg_color = $field['background']['color'];
-$type = "";
+$style_bg_color = !empty($bg_color) ? $bg_color : '';
+
+$bg_file = $field['background']['file']; // get object path or url
 if (!empty($bg_file) || $bg_file != null) {
-    $type = $bg_file['type'];
+    $type = $bg_file['subtype'];
+    if (preg_match('/(webp|png|jpeg)/', $type)) {
+        $style_bg_image = "url(" . "'" . $bg_file['url'] . "'" . ") top center; background-size: cover;";
+    } else {
+        $style_bg_image = '';
+    }
 }
 
 // Get Caption
 $caption = $field['caption'];
+
+// Get Link
+$link = $field['link'];
 
 // Get Services Contents
 //print_r($field);
@@ -45,23 +56,23 @@ if ($field['show'] && $section_name == 'section-services') {
 
 <?php if ($field['show']) { ?>
     <section id="<?php echo $section_name; ?>" class="section <?php echo $section_name; ?>" style="order:<?php echo $order; ?>;">
-        <div class="<?php echo $section_name; ?>-wrapper section-wrapper" style="background-color:<?php echo $bg_color; ?>">
-            <?php if ($bg_file) { ?>
+        <div class="<?php echo $section_name; ?>-wrapper section-wrapper" style="<?php echo 'background: ' . $style_bg_color; ?> <?php echo $style_bg_image; ?>">
+            <?php if ($bg_file && preg_match('/(video|mp4|gif)/', $type)) { ?>
                 <div class="section-background section-custom-background background-<?php echo $type; ?>">
-                    <?php if ($type == "video") { ?>
+                    <?php if ($type == "video" || $type == "mp4") { ?>
                         <video src="<?php echo $bg_file['url']; ?>" playsinline="" poster="" preload="none" autoplay="true" muted="" loop="" data-filter="<?php echo $bg_file['name']; ?>" crossorigin="anonymous"></video>
-                    <?php } else { ?>
-                        <img crossorigin="anonymous" src="<?php echo $bg_file['url']; ?>" draggable="true" alt="<?php echo $bg_file['title']; ?>">
-                    <?php } ?>
+                    <?php } else if($type == "gif") { ?>
+                        <img src="<?php echo $bg_file['url']; ?>" alt="<?php echo $bg_file['title']; ?>">
+                    <?php } ?>   
                 </div>
             <?php } ?>
 
             <?php if (($featured['show_featured'] && $featured['featured_image']) || ($caption['title'] || $caption['subtitle'])) // Check if fields have content
             { ?>
-                <div class="section-content <?php if($bg_file['url']) { echo 'section-content-with-bg'; } ?>">
+                <div class="section-content <?php if(!empty($bg_file) && preg_match('/(video|mp4|gif)/', $type)) { echo 'section-content-with-bg'; } ?>">
                     <?php if ($featured['show_featured'] && $featured['featured_image']) { ?>
                         <div class="featured-<?php echo $featured['featured_image']['type']; ?>">
-                            <img src="<?php echo $featured_image; ?>" draggable="true" alt="<?php echo $featured['featured_image']['title']; ?>">
+                            <img src="<?php echo $featured_image; ?>" alt="<?php echo $featured['featured_image']['title']; ?>">
                         </div>
                     <?php } ?>
 
@@ -70,9 +81,9 @@ if ($field['show'] && $section_name == 'section-services') {
                         <div class="caption">
                             <h2><?php echo $caption['title']; ?></h2>
                             <p><?php echo $caption['subtitle']; ?></p>
-                            <?php if ($caption['show_link']) { ?>
-                                <a href="<?php echo $caption['link']['url']; ?>" class="link">
-                                    <?php echo $caption['link']['title']; ?>
+                            <?php if ($link['show_link']) { ?>
+                                <a href="<?php echo $link['link_url']['url']; ?>" class="btn btn-<?php echo $link['link_class']; ?> float-<?php echo $link['link_alignment']; ?>">
+                                    <?php echo $link['link_url']['title']; ?>
                                 </a>
                             <?php } ?>
                         </div>

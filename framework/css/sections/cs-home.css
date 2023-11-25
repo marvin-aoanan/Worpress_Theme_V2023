@@ -14,11 +14,12 @@
 .section-content {
     position: relative;
     display: flex;
+    gap: 24px;
     margin: 0 auto;
     padding: 12px 24px;
     width: 100%;
     align-items: center;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 .section-content-with-bg {
     position: absolute;
@@ -55,6 +56,10 @@
 
 .section-services .section-content {
     flex-direction: column;
+}
+
+.section .caption > .btn {
+    margin: 0 auto;
 }
 
 .services {

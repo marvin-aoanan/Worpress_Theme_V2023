@@ -27,7 +27,7 @@ $caption = $field['caption'];
             <?php } ?>
         </div>
 
-        <div class="section-content <?php if($bg_file['url']) { echo 'section-content-with-bg'; } ?>">
+        <div class="section-content 2 <?php if($bg_file['url']) { echo 'section-content-with-bg'; } ?>">
             <?php if ($featured['show']) { ?>
                 <div class="featured-<?php echo $featured['featured_image']['type']; ?>">
                     <img src="<?php echo $featured_image[$select_size]; ?>" draggable="true" alt="<?php echo $featured['featured_image']['title']; ?>">
@@ -38,7 +38,7 @@ $caption = $field['caption'];
                 <h2><?php echo $caption['title']; ?></h2>
                 <p><?php echo $caption['subtitle']; ?></p>
                 <?php if($caption['show_link']) { ?>
-                    <a href="<?php echo $caption['link']['url']; ?>" class="link">
+                    <a href="<?php echo $caption['link']['url']; ?>" class="btn btn-link">
                     <?php echo $caption['link']['title']; ?>
                 </a>
                 <?php } ?>

@@ -1,9 +1,9 @@
 #cs-contact {
-    width: clamp(300px, 90%, 1000px);
+    width: clamp(280px, 90%, 1000px);
 }
 #cs-quick-contact {
-    /* display: block; */
-    width: clamp(300px, 90%, 600px);
+    display: block;
+    width: clamp(280px, 90%, 600px);
 }
 .cs-contact {
     background: #FFFFFF;
