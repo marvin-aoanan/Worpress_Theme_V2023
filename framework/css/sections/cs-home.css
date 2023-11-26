@@ -2,7 +2,7 @@
 @import url('./cs-services.css');
 
 .content.home {
-    margin: 0 calc(var(--cs-pad) * -4);
+    margin: 0 calc(var(--cs-gap) * -4);
     display: flex;
     flex-direction: column;
 }
@@ -14,12 +14,12 @@
 .section-content {
     position: relative;
     display: flex;
-    gap: 24px;
+    gap: calc(var(--cs-gap) * 6);
     margin: 0 auto;
-    padding: 12px 24px;
+    padding: calc(var(--cs-pad) * 3) calc(var(--cs-pad) * 6);
     width: 100%;
     align-items: center;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
 }
 .section-content-with-bg {
     position: absolute;
@@ -40,7 +40,7 @@
 }
 .featured-image {
     width: clamp(150px, 80%, 300px);
-    margin-right: calc(var(--cs-pad) * 4);
+    margin-right: calc(var(--cs-gap) * 4);
 }
 
 .section .caption > p {
@@ -51,7 +51,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding-bottom: 0;
-    margin-bottom: calc(var(--cs-pad) * 4);
+    margin-bottom: calc(var(--cs-gap) * 4);
 }
 
 .section-services .section-content {
@@ -59,20 +59,20 @@
 }
 
 .section .caption > .btn {
-    margin: 0 auto;
+    margin: calc(var(--cs-gap) * 3) auto;
 }
 
 .services {
     display: flex;
     flex-flow: row wrap;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: calc(var(--cs-gap) * 2);
     color: var(--cs-color-1);
 }
 
 .services > div {
     flex: 1 33.33%;
-    padding: 8px 12px;
+    padding: calc(var(--cs-pad) * 2) calc(var(--cs-pad) * 3);
     background-color: #ffffffb4;
 }
 
@@ -82,12 +82,15 @@
 }
 
 .services .caption > p {
-    margin-bottom: calc(var(--cs-pad) * 0);
+    margin-bottom: calc(var(--cs-gap) * 0);
     -webkit-line-clamp: 1; 
 }
 
 /* Small devices (landscape phones, 400px and up) */
 @media (min-width: 0px) and (max-width: 440px) { 
+    .services > div {
+        flex: auto;
+    }
     
  }
 

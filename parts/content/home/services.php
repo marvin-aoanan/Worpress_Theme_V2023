@@ -51,11 +51,11 @@ $caption = $field['caption'];
                     <?php if ($caption['title'] || $caption['subtitle']) // Check if fields have content 
                     { ?>
                         <div class="caption">
-                            <h2><?php echo $caption['title']; ?></h2>
+                            <h4><?php echo $caption['title']; ?></h4>
                             <p><?php echo $caption['subtitle']; ?></p>
                             <?php if ($caption['show_link']) { ?>
-                                <a href="<?php echo $caption['link']['url']; ?>" class="btn btn-link">
-                                    <?php echo $caption['link']['title']; ?>
+                                <a href="<?php echo $caption['link']['url']; ?>" class="btn btn-sm btn-outline-warning float-end">
+                                    <?php echo $caption['link']['title']; ?> <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>
                             <?php } ?>
                         </div>
