@@ -3,6 +3,7 @@
     /* width: clamp(200px, 50%, 400px); */
     width: fit-content;
     margin: 0 auto;
+    border-radius: 0;
 }
 .hr-line {
     display: block;

@@ -32,6 +32,8 @@ if (!empty($bg_file) || $bg_file != null) {
     } else {
         $style_bg_image = '';
     }
+} else {
+    $style_bg_image = '';
 }
 
 // Get Caption
@@ -56,7 +58,7 @@ if ($field['show'] && $section_name == 'section-services') {
 
 <?php if ($field['show']) { ?>
     <section id="<?php echo $section_name; ?>" class="section <?php echo $section_name; ?>" style="order:<?php echo $order; ?>;">
-        <div class="<?php echo $section_name; ?>-wrapper section-wrapper" style="<?php echo 'background: ' . $style_bg_color; ?> <?php echo $style_bg_image; ?>">
+        <div class="<?php echo $section_name; ?>-wrapper section-wrapper" style="<?php echo 'background: ' . $style_bg_color . ' ' . $style_bg_image; ?>">
             <?php if ($bg_file && preg_match('/(video|mp4|gif)/', $type)) { ?>
                 <div class="section-background section-custom-background background-<?php echo $type; ?>">
                     <?php if ($type == "video" || $type == "mp4") { ?>
