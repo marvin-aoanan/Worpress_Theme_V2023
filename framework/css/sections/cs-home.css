@@ -64,17 +64,11 @@
 
 .services {
     display: flex;
-    flex-flow: row wrap;
-    flex-wrap: wrap;
     gap: calc(var(--cs-gap) * 2);
     color: var(--cs-color-1);
+    flex-wrap: wrap;
 }
 
-.services > div {
-    flex: 1 33.33%;
-    /* padding: calc(var(--cs-pad) * 2) calc(var(--cs-pad) * 3); */
-    /* background-color: #ffffffb4; */
-}
 .services .featured-image {
     width: unset;
 }
@@ -91,9 +85,6 @@
 
 /* Small devices (landscape phones, 400px and up) */
 @media (min-width: 0px) and (max-width: 440px) { 
-    .services > div {
-        flex: auto;
-    }
     
  }
 
@@ -104,11 +95,17 @@
         display: block;
     }
 
-    .services > div {
-        flex: 1;
-    }
     .section-background {
         height: 280px;
+    }
+    
+
+}
+
+@media (min-width: 1024px)
+{
+    .services {
+        flex-wrap: nowrap;
     }
 
 }

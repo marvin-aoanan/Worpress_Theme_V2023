@@ -32,3 +32,7 @@ img, video, audio {
     max-width: 100%;
     display: block;
 }
+
+:hover {
+    cursor: pointer;
+}

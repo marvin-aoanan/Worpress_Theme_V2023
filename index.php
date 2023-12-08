@@ -32,6 +32,6 @@ if (is_home() && !is_front_page() && !empty(single_post_title('', false))) : ?>
 	
 	?>
 </div>
-<?php include (TEMPLATEPATH . '/framework/functions/nav.php' ); ?>
+<?php include (get_template_directory() . '/framework/functions/nav.php' ); ?>
 
 <?php get_footer(); ?>
