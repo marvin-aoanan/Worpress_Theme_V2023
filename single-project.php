@@ -4,7 +4,9 @@ get_header();
 
 $field_group = acf_get_fields('group_65704cbe24ea4'); // get group slug
 //var_dump($field_group);
-var_dump(get_post_meta(get_the_ID(), 'project_meta_logo', true));
+$meta = get_field('project_meta');
+var_dump($meta['logo']) . "\n";
+var_dump($meta['title']);
 
 ?>
 
@@ -12,3 +14,4 @@ var_dump(get_post_meta(get_the_ID(), 'project_meta_logo', true));
 <div>Title: <?php the_field('project_meta_title'); ?></div>
 
 <?php get_footer(); ?>
+

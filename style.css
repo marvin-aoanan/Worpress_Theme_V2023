@@ -38,6 +38,7 @@ Cybro Services Theme is distributed under the terms of the GNU GPL.
 @import url('./framework/css/sections/cs-home.css');
 @import url('./framework/css/sections/cs-contact.css');
 @import url('./framework/css/sections/cs-post-articles.css');
+@import url('./framework/css/sections/cs-projects.css');
 
 /* Responsive */
 @import url('./framework/css/responsive.css');
