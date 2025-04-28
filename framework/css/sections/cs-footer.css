@@ -2,4 +2,10 @@ footer {
     position: relative;
     margin: 0 auto;
     padding: 0 calc(var(--cs-pad) * 4);
+    background: #e0e0e0;
+    color: #000;
+}
+
+.social-media-links i {
+    color: #000;
 }

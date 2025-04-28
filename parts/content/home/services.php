@@ -35,8 +35,8 @@ $caption = $field['caption'];
 ?>
 
 <?php if ($field['show']) { ?>
-    <div id="<?php echo $service_name; ?>" class="service <?php echo $service_name; ?>" style="order:<?php echo $order; ?>;">
-        <div class="<?php echo $service_name; ?>-wrapper service-wrapper" style="<?php echo 'background: ' . $style_bg_color . ' ' . $style_bg_image; ?>">
+    <div id="<?php echo $service_name; ?>" class="service <?php echo $service_name; ?>" style="order:<?php echo $order; ?>; <?php echo 'background: ' . $style_bg_color . ' ' . $style_bg_image; ?>">
+        <div class="<?php echo $service_name; ?>-wrapper service-wrapper" style="">
             <?php if ($bg_file && preg_match('/(video|mp4|gif)/', $type)) { ?>
                 <div class="service-background service-custom-background background-<?php echo $type; ?>">
                     <?php if ($type == "video" || $type == "mp4") { ?>

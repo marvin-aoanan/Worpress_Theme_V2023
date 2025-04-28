@@ -69,6 +69,10 @@
     flex-wrap: wrap;
 }
 
+.services > div {
+    flex: 1;
+}
+
 .services .featured-image {
     width: unset;
 }
